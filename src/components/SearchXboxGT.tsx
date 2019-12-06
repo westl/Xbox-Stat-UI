@@ -5,7 +5,7 @@ export interface SearchXboxGTProps {
   inputHelpText?: string | undefined;
   label?: string | undefined;
   submitButtonText?: string | undefined;
-  onSubmit: (data: any) => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 export const SearchXboxGT: React.FC<SearchXboxGTProps> = ({
   messageToDisplay = 'Search',

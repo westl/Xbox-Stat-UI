@@ -1,10 +1,16 @@
 import React from 'react';
-import { NavigationBar } from '../components/NavigationBar';
 import { Landing } from '../components/Landing';
 import { SearchXboxGT } from '../components/SearchXboxGT';
-
+// TODO: remove once done with static data.
+import profileData from '../test_data/xbox-profile.json';
 const XboxAppPage: React.FC<{}> = () => {
-  const handleSearchSubmit = () => {};
+  // TODO: turn into state variables
+  let staticXboxProfileData = {};
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(profileData);
+    staticXboxProfileData = profileData; // TODO: share this with the account display component
+  };
   return (
     <div>
       <div className="container">
