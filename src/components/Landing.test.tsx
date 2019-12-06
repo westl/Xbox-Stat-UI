@@ -13,7 +13,7 @@ describe('Navigation Bar Component', () => {
 
   it('should render with the proper title and be clickable', () => {
     const message = 'test123';
-    const { getByText } = render(<Landing message="test123" />);
+    const { getByText } = render(<Landing messageToDisplay="test123" />);
     expect(getByText(message)).toBeInTheDocument();
   });
 });

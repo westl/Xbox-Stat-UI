@@ -1,13 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-  render,
-  getQueriesForElement,
-  fireEvent
-} from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { SearchXboxGT } from './SearchXboxGT';
-
 describe('Navigation Bar Component', () => {
   it('should render without crashing', () => {
     const div = document.createElement('div');
@@ -20,14 +15,16 @@ describe('Navigation Bar Component', () => {
     const message = 'test get started';
     const inputBoxPlaceholder = 'test placeholder';
     const inputHelpText = 'test static';
+    const submitButtonText = 'test search';
     const onSubmit = jest.fn();
 
     const { getByText, getByTestId } = render(
       <SearchXboxGT
-        message={message}
+        messageToDisplay={message}
         inputBoxPlaceholder={inputBoxPlaceholder}
         inputHelpText={inputHelpText}
         onSubmit={onSubmit}
+        submitButtonText={submitButtonText}
       />
     );
     expect(getByText(message)).toBeInTheDocument();
@@ -37,9 +34,10 @@ describe('Navigation Bar Component', () => {
     expect(getByTestId(/inputHelpText/i).textContent).toBe(inputHelpText);
 
     expect(getByTestId(/gtsearchinput/i)).toBeTruthy();
+
     const submitButton = getByTestId(/gtsearchsubmit/i);
+    expect(submitButton.textContent).toBe(submitButtonText);
     expect(submitButton).toBeTruthy();
-    
     fireEvent.submit(getByTestId(/form/i));
     expect(onSubmit).toHaveBeenCalled();
   });

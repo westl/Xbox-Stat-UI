@@ -13,7 +13,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": "./",
+    "paths": {
+      "@test/*": ["test_data/*"],
+    }
   },
   "include": ["src", "custom.d.ts"],
   "files": ["./node_modules/@testing-library/jest-dom/extend-expect.d.ts"]

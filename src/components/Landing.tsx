@@ -1,4 +1,15 @@
 import React from 'react';
-export const Landing: React.FC<{}> = () => {
-  return <div></div>;
+export interface LandingProps {
+  messageToDisplay?: string | undefined;
+}
+export const Landing: React.FC<LandingProps> = ({ messageToDisplay }) => {
+  return (
+    <h1
+      className="display-4"
+      data-testid="messageToDisplay"
+      id="message-to-display"
+    >
+      {messageToDisplay}
+    </h1>
+  );
 };
