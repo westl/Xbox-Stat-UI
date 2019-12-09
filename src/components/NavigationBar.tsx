@@ -1,9 +1,9 @@
 import React, { Component, FunctionComponent } from 'react';
 
 export interface NavigationBarProps {
-  left?: Component | FunctionComponent | undefined;
-  right?: Component | FunctionComponent | undefined;
-  title: string | undefined;
+  left?: Component | FunctionComponent;
+  right?: Component | FunctionComponent;
+  title?: string;
 }
 const NavigationBar: React.FC<NavigationBarProps> = ({ title }) => {
   return (

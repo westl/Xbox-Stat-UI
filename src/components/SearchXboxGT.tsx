@@ -1,10 +1,10 @@
 import React from 'react';
 export interface SearchXboxGTProps {
-  messageToDisplay?: string | undefined;
-  inputBoxPlaceholder?: string | undefined;
-  inputHelpText?: string | undefined;
-  label?: string | undefined;
-  submitButtonText?: string | undefined;
+  messageToDisplay?: string;
+  inputBoxPlaceholder?: string;
+  inputHelpText?: string;
+  label?: string;
+  submitButtonText?: string;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 export const SearchXboxGT: React.FC<SearchXboxGTProps> = ({
@@ -17,11 +17,7 @@ export const SearchXboxGT: React.FC<SearchXboxGTProps> = ({
 }) => {
   return (
     <div>
-      <h1
-        className="display-4"
-        data-testid="messageToDisplay"
-        id="message-to-display"
-      >
+      <h1 className="display-4" data-testid="messageToDisplay" id="message-to-display">
         {messageToDisplay}
       </h1>
       <form onSubmit={onSubmit} data-testid="form">
@@ -37,20 +33,11 @@ export const SearchXboxGT: React.FC<SearchXboxGTProps> = ({
             aria-describedby="search-help"
             required
           />
-          <small
-            id="search-help"
-            data-testid="inputHelpText"
-            className="form-text text-muted"
-          >
+          <small id="search-help" data-testid="inputHelpText" className="form-text text-muted">
             {inputHelpText}
           </small>
         </div>
-        <button
-          data-testid="gtsearchsubmit"
-          id="submit-search"
-          type="submit"
-          className="btn btn-success mb-3"
-        >
+        <button data-testid="gtsearchsubmit" id="submit-search" type="submit" className="btn btn-success mb-3">
           {submitButtonText}
         </button>
       </form>
